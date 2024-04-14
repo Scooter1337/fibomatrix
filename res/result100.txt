@@ -1,0 +1,4 @@
+Fibonacci number at position 100: 354224848179261915075
+
+	Length in digits: 21
+	Time elapsed: 45.583µs
