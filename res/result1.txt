@@ -1,4 +1,5 @@
-Fibonacci number at position 1: 1
+Fibonacci number at position 1: 
+1
 
 	Length in digits: 1
-	Time elapsed: 16.708µs
+	Time elapsed: 286.666µs

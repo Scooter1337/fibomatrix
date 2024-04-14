@@ -1,4 +1,5 @@
-Fibonacci number at position 10: 55
+Fibonacci number at position 10: 
+55
 
 	Length in digits: 2
-	Time elapsed: 32µs
+	Time elapsed: 10.667µs
