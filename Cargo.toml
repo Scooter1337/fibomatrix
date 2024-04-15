@@ -3,5 +3,7 @@ name = "fibomatrix"
 version = "0.1.0"
 edition = "2021"
 
-[dependencies]
-rug = {features = ["integer"], version = "1.24.1"}
+[dependencies.rug]
+version = "1.24.1"
+default-features = false
+features = ["integer"]
