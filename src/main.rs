@@ -44,7 +44,7 @@ fn main() {
 
     // Print the result
     match args.quiet {
-        false => print_result(n, result, elapsed),
+        false => print_result(n, result),
         true => (),
     }
 
@@ -54,9 +54,8 @@ fn main() {
     }
 }
 
-fn print_result(n: usize, result: rug::Integer, elapsed: std::time::Duration) {
+fn print_result(n: usize, result: rug::Integer) {
     println!("\n\tFibonacci sequence of length {}:", n);
     println!("\t{}", result);
     println!("\n\tLength in digits: {}", result.to_string().len());
-    println!("\tTime elapsed: {:?}", elapsed);
 }
