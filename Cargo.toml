@@ -10,7 +10,7 @@ rayon = "1.10.0"
 [dependencies.rug]
 version = "1.24.1"
 default-features = false
-features = ["integer"]
+features = ["integer", "float"]
 
 [profile.release]
 # lto = true
