@@ -12,7 +12,7 @@ Method chosen is fastest for that N, that calculates the correct answer. (Approx
 | 10K | 17.54us | 0 |
 | 100K | 318us| 0 |
 | 1M | 3.42ms| 8 |
-| 10M | 34.23ms| 8 |
+| 10M | 33.73ms| 8 |
 | 100M | 550ms | 8 |
 | 1B | 5.82s | 8 |
 
