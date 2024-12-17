@@ -1,5 +1,7 @@
 #![allow(clippy::needless_range_loop)]
 
+use std::io::Write;
+
 use clap::Parser;
 mod approx;
 mod rayon;
@@ -19,20 +21,22 @@ struct Args {
 
     /// Method to use {n}
     ///
-    /// Options: {n}
-    /// > 0: Single-threaded {n}
+    /// Options: {n} {n}
+    /// Single-threaded: {n}
+    /// > 0: Single-threaded matrix multiplication {n}
     /// > 1: Iterative {n}
     /// > 2: Recursive {n}
     /// > 3: Recursive with memoization {n}
-    ///
-    /// > 4: Parallel (rayon) {n}
-    /// > 5: Parallel (rayon) but skips 3/4 of the last iteration {n}
-    /// > 6: Parallel (rayon) but also parallelizes the multiplications, instead of just the 4 matrix values {n}
-    /// > 7: Combination of 2 and 3, which doesn't have to wait for all multiplications to finish {n}
-    ///
-    /// > 8: Parallel (threads) {n}
-    ///
-    /// > 9: Approximation (Big Float, with chosen precision) {n}
+    /// > 4: Single-threaded matrix multiplication without BigInt {n} {n}
+    /// Rayon (each variant is more optimized than the last): {n}
+    /// > 5: Rayon matrix multiplication 1 {n}
+    /// > 6: Rayon matrix multiplication 2 {n}
+    /// > 7: Rayon matrix multiplication 3 {n}
+    /// > 8: Rayon matrix multiplication 4 {n} {n} (fastest)
+    /// Threads: {n}
+    /// > 9: Threads matrix multiplication 1 (WIP) {n} {n}
+    /// Approximation (BigFloat): {n}
+    /// > 10: Approximation 1 {n}
     #[clap(short, long, default_value = "1")]
     method: usize,
 
@@ -53,6 +57,12 @@ struct Args {
     ///
     #[clap(long, short, default_value = "100")]
     precision: u32,
+
+    /// Warmup iterations
+    /// (number of times to run the calculation before timing it)
+    ///
+    #[clap(long, short, default_value = "0")]
+    warmup: usize,
 }
 
 fn main() {
@@ -64,6 +74,30 @@ fn main() {
     if n < 1 {
         println!("Length must be at least 1");
         return;
+    }
+
+    // Warmup
+    if args.warmup > 0 {
+        println!("Warming up...");
+        for i in 0..args.warmup {
+            match args.method {
+                0 => simple::matrix::fib(n),
+                1 => simple::iter::fib(n),
+                2 => simple::recursive::fib(n),
+                3 => simple::recursive_memo::fib(n),
+                4 => simple::matrix_no_bigint::fib(n),
+                5 => rayon::matrix1::fib(n),
+                6 => rayon::matrix2::fib(n),
+                7 => rayon::matrix3::fib(n),
+                8 => rayon::matrix4::fib(n),
+                9 => threads::matrix1::fib(n),
+                10 => approx::approx1::fib(n, args.precision),
+                _ => unimplemented!("Method not implemented"),
+            };
+            print!("\rWarmup: {}/{}", i + 1, args.warmup);
+            std::io::stdout().flush().unwrap();
+        }
+        println!("\nWarmup complete\n");
     }
 
     // time the calculation

@@ -1,5 +1,10 @@
-Fibonacci number at position 100: 
-354224848179261915075
+Warming up...
+Warmup: 1/100Warmup: 2/100Warmup: 3/100Warmup: 4/100Warmup: 5/100Warmup: 6/100Warmup: 7/100Warmup: 8/100Warmup: 9/100Warmup: 10/100Warmup: 11/100Warmup: 12/100Warmup: 13/100Warmup: 14/100Warmup: 15/100Warmup: 16/100Warmup: 17/100Warmup: 18/100Warmup: 19/100Warmup: 20/100Warmup: 21/100Warmup: 22/100Warmup: 23/100Warmup: 24/100Warmup: 25/100Warmup: 26/100Warmup: 27/100Warmup: 28/100Warmup: 29/100Warmup: 30/100Warmup: 31/100Warmup: 32/100Warmup: 33/100Warmup: 34/100Warmup: 35/100Warmup: 36/100Warmup: 37/100Warmup: 38/100Warmup: 39/100Warmup: 40/100Warmup: 41/100Warmup: 42/100Warmup: 43/100Warmup: 44/100Warmup: 45/100Warmup: 46/100Warmup: 47/100Warmup: 48/100Warmup: 49/100Warmup: 50/100Warmup: 51/100Warmup: 52/100Warmup: 53/100Warmup: 54/100Warmup: 55/100Warmup: 56/100Warmup: 57/100Warmup: 58/100Warmup: 59/100Warmup: 60/100Warmup: 61/100Warmup: 62/100Warmup: 63/100Warmup: 64/100Warmup: 65/100Warmup: 66/100Warmup: 67/100Warmup: 68/100Warmup: 69/100Warmup: 70/100Warmup: 71/100Warmup: 72/100Warmup: 73/100Warmup: 74/100Warmup: 75/100Warmup: 76/100Warmup: 77/100Warmup: 78/100Warmup: 79/100Warmup: 80/100Warmup: 81/100Warmup: 82/100Warmup: 83/100Warmup: 84/100Warmup: 85/100Warmup: 86/100Warmup: 87/100Warmup: 88/100Warmup: 89/100Warmup: 90/100Warmup: 91/100Warmup: 92/100Warmup: 93/100Warmup: 94/100Warmup: 95/100Warmup: 96/100Warmup: 97/100Warmup: 98/100Warmup: 99/100Warmup: 100/100
+Warmup complete
+
+
+	Fibonacci sequence of length 100:
+	354224848179261915075
 
 	Length in digits: 21
-	Time elapsed: 13.416µs
+	Time elapsed: 84ns

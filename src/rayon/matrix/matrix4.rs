@@ -53,7 +53,7 @@ fn mult(a: &[Integer], b: &[Integer]) -> Vec<Integer> {
         .par_iter()
         .enumerate()
         .map(|(i, _)| {
-            let indiv = vec![Integer::new(), Integer::new()];
+            let indiv = [Integer::new(), Integer::new()];
             let x = i % 2;
             let y = i / 2;
 
