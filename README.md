@@ -66,7 +66,7 @@ Options:
            > 7: Rayon matrix multiplication 3 
            > 8: Rayon matrix multiplication 4 
            
-           (fastest) Threads: 
+           Threads: 
            > 9: Threads matrix multiplication 1 (WIP) 
            
            Approximation (BigFloat): 
