@@ -14,7 +14,7 @@ Method chosen is fastest for that N, that calculates the correct answer. (Approx
 | 1M | 3.42ms| 8 |
 | 10M | 33.73ms| 8 |
 | 100M | 547ms | 8 |
-| 1B | 5.82s | 8 |
+| 1B | 5.78s | 8 |
 
 # Usage
 Build using `cargo build --release` or run `cargo run --release -- $` where $ is to be replaced with command-line arguments.
