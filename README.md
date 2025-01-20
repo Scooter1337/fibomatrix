@@ -17,6 +17,25 @@ Method chosen is fastest for that N, that calculates the correct answer. (Approx
 | 1B | 5.82s | 8 |
 
 # Usage
+Build using `cargo build --release` or run `cargo run --release -- $` where $ is to be replaced with command-line arguments.
+
+> Note
+> 
+> The first compile could take multiple minutes as 'gmp-mpfr-sys' is building. It is not frozen!
+
+### Example
+```bash
+cargo build --release
+target/release/fastest-fibo -m 8 --length 100000000 --quiet
+```
+
+or
+
+```bash
+cargo run --release -- -m 8 --length 100000000 --quiet --warmup 10
+```
+
+
 ```bash
 Usage: fibomatrix [OPTIONS] --length <LENGTH>
 
