@@ -1,7 +1,7 @@
 # Fibo Matrix
 Rust Command Line tool that calculates the n'th fibonacci number.
 
-Created by [Luca](github.com/scooter1337)
+Created by [Luca](https://github.com/scooter1337)
 
 # Bench
 Method chosen is fastest for that N, that calculates the correct answer. (Approximations / Non-bigint-implementations do not always return the correct result, due to the nature of approximation and due to overflowing integers)
