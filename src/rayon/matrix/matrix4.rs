@@ -54,15 +54,15 @@ fn mult(a: &[Integer], b: &[Integer]) -> Vec<Integer> {
         .enumerate()
         .map(|(i, _)| {
             let indiv = [Integer::new(), Integer::new()];
-            let x = i % 2;
+            let x = (i % 2) * 2;
             let y = i / 2;
 
             let indiv = indiv
                 .par_iter()
                 .enumerate()
                 .map(|(j, _)| match j {
-                    0 => (&a[(x * 2) + j] * &b[y]).complete(),
-                    1 => (&a[(x * 2) + j] * &b[y + 2]).complete(),
+                    0 => (&a[(x) + j] * &b[y]).complete(),
+                    1 => (&a[(x) + j] * &b[y + 2]).complete(),
                     _ => unreachable!(),
                 })
                 .collect::<Vec<Integer>>();

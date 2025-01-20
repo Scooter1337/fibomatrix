@@ -1,14 +1,14 @@
 [package]
-name = "fibomatrix"
-version = "0.1.0"
+name = "fastest-fibo"
+version = "1.0.0"
 edition = "2021"
 
 [dependencies]
-clap = { version = "4.5.4", features = ["derive"] }
+clap = { version = "4.5.26", features = ["derive"] }
 rayon = "1.10.0"
 
 [dependencies.rug]
-version = "1.24.1"
+version = "1.26.1"
 default-features = false
 features = ["integer", "float"]
 
