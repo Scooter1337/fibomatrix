@@ -37,7 +37,7 @@ cargo run --release -- -m 8 --length 100000000 --quiet --warmup 10
 
 or
 
-```bash
+```md
 Usage: fibomatrix [OPTIONS] --length <LENGTH>
 
 Options:
