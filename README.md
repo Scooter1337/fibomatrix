@@ -8,10 +8,10 @@ Method chosen is fastest for that N, that calculates the correct answer. (Approx
 | N | time | method |
 |---|---|---|
 | 100 | 40ns | 4 |
-| 1000 | 6.45us | 0 |
-| 10K | 17.54us | 0 |
+| 1000 | 3.66us | 0 |
+| 10K | 15.25us | 0 |
 | 100K | 318us| 0 |
-| 1M | 3.42ms| 8 |
+| 1M | 3.38ms| 8 |
 | 10M | 33.73ms| 8 |
 | 100M | 547ms | 8 |
 | 1B | 5.78s | 8 |
