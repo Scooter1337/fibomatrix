@@ -32,11 +32,19 @@ struct Args {
     /// > 5: Rayon matrix multiplication 1 {n}
     /// > 6: Rayon matrix multiplication 2 {n}
     /// > 7: Rayon matrix multiplication 3 {n}
-    /// > 8: Rayon matrix multiplication 4 {n} {n} (fastest)
+    /// > 8: Rayon matrix multiplication 4 {n} {n} (previous fastest matrix)
+    /// > 15: Rayon matrix multiplication 5 (pool-less in-place optimized) {n}
     /// Threads: {n}
     /// > 9: Threads matrix multiplication 1 (WIP) {n} {n}
     /// Approximation (BigFloat): {n}
     /// > 10: Approximation 1 {n}
+    /// Additional single-threaded:
+    /// Fast Doubling (logarithmic): {n}
+    /// > 11: Fast doubling recursive (O(log n)) {n}
+    /// > 12: Fast doubling iterative (O(log n)) {n}
+    /// > 13: Fast doubling + rayon (parallel squares) {n}
+    /// > 14: Fast doubling + threads (parallel squares) {n}
+    /// NOTE: For very large n, iterative (12) often wins single-thread; 13 may help if big-int squaring dominates.
     #[clap(short, long, default_value = "1")]
     method: usize,
 
@@ -90,8 +98,13 @@ fn main() {
                 6 => rayon::matrix2::fib(n),
                 7 => rayon::matrix3::fib(n),
                 8 => rayon::matrix4::fib(n),
+                15 => rayon::matrix5::fib(n),
                 9 => threads::matrix1::fib(n),
                 10 => approx::approx1::fib(n, args.precision),
+                11 => simple::fast_doubling::fib(n),
+                12 => simple::fast_doubling_iter::fib(n),
+                13 => rayon::fast_doubling::fib(n),
+                14 => threads::fast_doubling::fib(n),
                 _ => unimplemented!("Method not implemented"),
             };
             print!("\rWarmup: {}/{}", i + 1, args.warmup);
@@ -111,8 +124,13 @@ fn main() {
         6 => rayon::matrix2::fib(n),
         7 => rayon::matrix3::fib(n),
         8 => rayon::matrix4::fib(n),
+        15 => rayon::matrix5::fib(n),
         9 => threads::matrix1::fib(n),
         10 => approx::approx1::fib(n, args.precision),
+        11 => simple::fast_doubling::fib(n),
+        12 => simple::fast_doubling_iter::fib(n),
+        13 => rayon::fast_doubling::fib(n),
+        14 => threads::fast_doubling::fib(n),
         _ => unimplemented!("Method not implemented"),
     };
 

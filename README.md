@@ -16,6 +16,8 @@ Method chosen is fastest for that N, that calculates the correct answer. (Approx
 | 100M | 547ms | 8 |
 | 1B | 5.78s | 8 |
 
+Note: Experimental method 15 (Rayon matrix multiplication 5) often outperforms method 8 by ~1.8-2x for medium to large N due to reduced temporary allocations and in-place reuse; benchmarks table will be updated after broader validation.
+
 # Usage
 Build using `cargo build --release` or run `cargo run --release -- $` where $ is to be replaced with command-line arguments.
 
@@ -66,6 +68,7 @@ Options:
            > 6: Rayon matrix multiplication 2 
            > 7: Rayon matrix multiplication 3 
            > 8: Rayon matrix multiplication 4 
+           > 15: Rayon matrix multiplication 5 (in-place optimized) 
            
            Threads: 
            > 9: Threads matrix multiplication 1 (WIP) 
