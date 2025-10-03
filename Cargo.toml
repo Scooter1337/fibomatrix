@@ -4,14 +4,38 @@ version = "1.0.0"
 edition = "2021"
 
 [dependencies]
-clap = { version = "4.5.38", features = ["derive"] }
+clap = { version = "4.5.38", features = ["derive"], optional = true }
 rayon = "1.10.0"
+wasm-bindgen = "0.2"
 
 [dependencies.rug]
 version = "1.27.0"
 default-features = false
 features = ["integer", "float"]
 
+[dependencies.gmp-mpfr-sys]
+version = "1.6.4" # Make sure this version is compatible with your rug version
+features = ["force-cross"]
+
 [profile.release]
-# lto = true
-# opt-level = 3
+lto = true
+opt-level = 3
+strip = "debuginfo"
+panic = "abort"
+overflow-checks = false
+codegen-units = 1
+debug = false
+optimize = true
+
+[features]
+# Define a feature, e.g., "cli", that enables the clap dependency.
+# "dep:clap" syntax refers to the optional dependency named "clap".
+cli = ["dep:clap"]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "fastest-fibo"
+path = "src/main.rs" # Or the correct path to your binary's entry point
+required-features = ["cli"] # This activates the "cli" feature when building this binary
